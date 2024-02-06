@@ -17,11 +17,11 @@ class BuildGraph {
 
     public static void main(String[] args) {
 
-        int vertex = 7;
+        int vertex = 6;
         int edge = 8;
 
         // using adjacency matrix
-        int arr[][] = new int[vertex + 1][vertex + 1];
+        int arr[][] = new int[vertex][vertex];
 
         addEdge(arr, 1, 2);
         addEdge(arr, 2, 3);
@@ -31,7 +31,7 @@ class BuildGraph {
         // using adjacency list
         ArrayList<ArrayList<Integer>> adj = new ArrayList<>();
 
-        for (int i = 0; i < vertex + 1; i++) {
+        for (int i = 0; i <= vertex; i++) {
             adj.add(new ArrayList<Integer>());
         }
 
@@ -54,14 +54,33 @@ class BuildGraph {
 
         System.out.println("Is source to des path exist : " + check);
 
+        System.out.println(obj.findPath(pred,1, 6));
+
+
+        // from Dfs.java
+
+        Dfs obj1=new Dfs();
+        
+        boolean visited[]=new boolean[vertex+1];
+        ArrayList<Integer>traverseData=new ArrayList<>();
+           
+        // initialize
+        visited[1]=true;
+         traverseData.add(1);
+
+        obj1.dfsTraverse(1,adj,visited,traverseData);
+
+        obj1.printTreversalData(traverseData);
+        
+
     }
 }
 
 // graph.
 
 // 1------------2
-// | \ |
-// 3 \ |
-// | \ |
+// |   \        |
+// 3     \      |
+// |       \    |
 // 4------------5
 // |-----6----- |
