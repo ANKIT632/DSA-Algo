@@ -9,7 +9,7 @@ public class Dfs {
     for(var neighbor:adj.get(vertex)){
 
         if(!visited[neighbor]){
-            visited[neighbor]=true;
+            visited[neighbor]=true; 
             traversalData.add(neighbor);
             dfsTraverse(neighbor, adj, visited, traversalData);
         }
